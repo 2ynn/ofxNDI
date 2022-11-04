@@ -6,6 +6,7 @@
 #include <vector>
 #include <mutex>
 #include <thread>
+#include <functional>
 
 namespace ofxNDI {
 
@@ -20,6 +21,7 @@ struct Source {
 	Source(NDIlib_source_v2_t v):Source(v.p_ndi_name, v.p_url_address, v.p_metadata){}
 	NDIlib_source_t toV1() const { return {ndi_name.c_str(), url_address.c_str()}; }
 	NDIlib_source_v2_t toV2() const { return {ndi_name.c_str(), url_address.c_str(), ""}; }
+
 };
 
 namespace Find {
